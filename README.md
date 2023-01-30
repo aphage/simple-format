@@ -14,3 +14,11 @@ int main() {
     }
 }
 ```
+
+Output:
+```txt
+Hello world {}
+{}  : alpha 
+{} {}  : alpha Z 
+{} {} {}  : alpha Z 3.14
+```
