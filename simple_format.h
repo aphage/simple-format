@@ -31,6 +31,8 @@ void vformat(std::stringstream& ss, const std::string& format, uint32_t i, T val
         if(format[i] == '{' && i+1 < format.length() && format[i+1] == '}') {
             ss << value;
             i += 2;
+            ss << format.substr(i);
+            return;
         } else {
             ss << format[i];
         }
