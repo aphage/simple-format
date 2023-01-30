@@ -24,15 +24,12 @@
 
 #include <string>
 #include <sstream>
+#include <stdexcept>
 
-template <typename T>
-void vformat(std::stringstream& ss, const std::string& format, uint32_t i, T value) {
+void vformat(std::stringstream& ss, const std::string& format, uint32_t i) {
     for(; i < format.length(); i++) {
         if(format[i] == '{' && i+1 < format.length() && format[i+1] == '}') {
-            ss << value;
-            i += 2;
-            ss << format.substr(i);
-            return;
+            throw std::invalid_argument("too many argument");
         } else {
             ss << format[i];
         }
