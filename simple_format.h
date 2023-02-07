@@ -26,7 +26,7 @@
 #include <sstream>
 #include <stdexcept>
 
-void vformat(std::stringstream& ss, const std::string& format, uint32_t i) {
+static void vformat(std::stringstream& ss, const std::string& format, uint32_t i) {
     for(; i < format.length(); i++) {
         if(format[i] == '{' && i+1 < format.length() && format[i+1] == '}') {
             throw std::invalid_argument("too many argument");
